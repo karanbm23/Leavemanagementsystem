@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1126860_lms.SetDurationLvmngmt</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>SetDurationLvmngmt</name>
+        <script><![CDATA[var SetDurationLvmngmt = Class.create();
+SetDurationLvmngmt.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    type: 'SetDurationLvmngmt',
+    getDurationAjax: function() {
+        var startDate = this.getParameter('sysparm_dat1');
+        var endDate = this.getParameter('sysparm_dat2');
+        var start = new GlideDateTime(startDate);
+        var end = new GlideDateTime(endDate);
+        var dur = GlideDateTime.subtract(start, end);
+        var days = dur.getRoundedDayPart();
+        var months = (days / 30.436875);
+        var full_months = Math.floor(months);
+        var remaining_days = Math.round((months - full_months) * 30.436875);
+        if (days < 30) {
+            var day = days + 1;
+            return day + "Days";
+        } else {
+            return full_months + "Months" + remaining_days;
+        }
+
+    },
+    getLeaveBucket: function() {
+        var gr = new GlideRecord('x_1126860_lms_leave_bucket');
+        gr.addQuery('employee', this.getParameter('sysparm_user'));
+        gr.addQuery('leave_type', this.getParameter('sysparm_leavetype'));
+        gr.query();
+        if (gr.next()) {
+            var leaveDetails = {};
+            leaveDetails.accrued = '' + gr.accrued;
+            leaveDetails.balance = '' + gr.balance;
+            leaveDetails.taken = '' + gr.taken;
+            return JSON.stringify(leaveDetails);
+        }
+
+    }
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-15 12:54:37</sys_created_on>
+        <sys_id>4e47d9c1c3191210fbe7d0dc0501316e</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>SetDurationLvmngmt</sys_name>
+        <sys_package display_value="Leave Management System" source="x_1126860_lms">a0a259e6c3b01210fbe7d0dc050131a9</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Leave Management System">a0a259e6c3b01210fbe7d0dc050131a9</sys_scope>
+        <sys_update_name>sys_script_include_4e47d9c1c3191210fbe7d0dc0501316e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-14 12:51:36</sys_updated_on>
+    </sys_script_include>
+</record_update>
