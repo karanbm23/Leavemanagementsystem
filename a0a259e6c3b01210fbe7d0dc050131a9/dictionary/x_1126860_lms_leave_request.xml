@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="ea79b321c33422101737341d050131a7" label="Lms Leave Request" max_length="40" name="x_1126860_lms_leave_request" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Taken" max_length="40" name="taken" type="float"/>
+        <element label="Start Date" max_length="40" name="start_date" type="glide_date"/>
+        <element label="End Date" max_length="40" name="end_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Accrued" max_length="40" name="accrued" type="float"/>
+        <element choice="3" default="------select the approval------" label="Approval" max_length="40" name="approval" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Rejected" value="rejected"/>
+                <element inactive_on_update="false" label="Requested" value="requested"/>
+                <element inactive_on_update="false" label="Not Yet Requested" value="nyr"/>
+                <element inactive_on_update="false" label="Approved" value="approved"/>
+            </choice>
+        </element>
+        <element label="Comments" max_length="40" name="comments" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Half Day" max_length="40" name="half_day" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" choice_field="leave_type" choice_table="x_1126860_lms_leave_bucket" default="-----select the leave type----" label="Leave Type" max_length="40" name="leave_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Casual Leave" sequence="0" value="cl"/>
+                <element inactive_on_update="false" label="Earned Leave" sequence="1" value="el"/>
+                <element inactive_on_update="false" label="Sick Leave" sequence="2" value="sl"/>
+                <element inactive_on_update="false" label="WFH" sequence="3" value="wfh"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Duration" max_length="40" name="duration" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Balance" max_length="40" name="balance" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Full Day" max_length="40" name="full_day" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Documents" max_length="40" name="documents" type="file_attachment"/>
+        <element choice="3" default="----select the status-----" label="Status" max_length="40" name="status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Cancelled" sequence="3" value="cancelled"/>
+                <element inactive_on_update="false" label="Submitted" sequence="2" value="submitted"/>
+                <element inactive_on_update="false" label="Open" sequence="1" value="open"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;// Add your code here&#10;&#9;javascript:gs.getUserID();&#10;&#9;return '';  // return the calculated value&#10;&#10;})(current);" default="javascript:gs.getuserID();" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="Requested By" max_length="32" name="requested_by" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Reason for Sick Leave" max_length="100" name="reason_for_sick_leave" type="string"/>
+        <index name="index">
+            <element name="requested_by"/>
+        </index>
+    </element>
+</database>
