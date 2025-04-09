@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="leaves" table="x_1126860_lms_leave_calculator">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>edge_encryption_enabled=true</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -52,7 +52,6 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-09-25 16:39:26</sys_created_on>
-        <sys_id>522b87eec3749210fbe7d0dc05013113</sys_id>
         <sys_name>Leaves</sys_name>
         <sys_package display_value="Leave Management System" source="x_1126860_lms">a0a259e6c3b01210fbe7d0dc050131a9</sys_package>
         <sys_policy/>

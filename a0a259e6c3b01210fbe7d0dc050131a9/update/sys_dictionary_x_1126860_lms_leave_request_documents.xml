@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="documents" table="x_1126860_lms_leave_request">
         <active>true</active>
         <array>false</array>
-        <attributes/>
+        <attributes>edge_encryption_enabled=true</attributes>
         <audit>false</audit>
         <calculation/>
         <choice>0</choice>
@@ -47,7 +47,6 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2024-10-12 02:21:08</sys_created_on>
-        <sys_id>c3f9a3b7c3011210fbe7d0dc0501317f</sys_id>
         <sys_name>Documents</sys_name>
         <sys_package display_value="Leave Management System" source="x_1126860_lms">a0a259e6c3b01210fbe7d0dc050131a9</sys_package>
         <sys_policy/>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="cab53aa6c3309210fbe7d0dc05013136" label="Leave Bucket" max_length="40" name="x_1126860_lms_leave_bucket" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Taken" max_length="40" name="taken" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Accrued" max_length="40" name="accrued" type="float"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="----select the leave type----" label="Leave Type" max_length="40" name="leave_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Sick Leave" value="sl"/>
+                <element inactive_on_update="false" label="Casual Leave" value="cl"/>
+                <element inactive_on_update="false" label="Earned Leave" value="el"/>
+                <element inactive_on_update="false" label="WFH" value="wfh"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Employee" max_length="32" name="employee" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Balance" max_length="40" name="balance" type="float"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Year Balance" max_length="40" name="last_year_balance" type="float"/>
+        <index name="index">
+            <element name="employee"/>
+        </index>
+    </element>
+</database>
